@@ -7,7 +7,7 @@ export default function HomeScreen() {
   return (
     <SafeAreaView style={style.container}>
       <ScrollView>
-        <Text>Hello World: Home</Text>
+        <Text>Hello Admin: Home</Text>
         <View>
           <Link href={"/login"}>
             <Text>To Login</Text>

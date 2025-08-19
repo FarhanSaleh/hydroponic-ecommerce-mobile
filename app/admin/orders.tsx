@@ -1,11 +1,12 @@
+import { Colors } from "@/constants/Colors";
 import { ScrollView, StyleSheet, Text } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-export default function TabTwoScreen() {
+export default function OrdersScreen() {
   return (
     <SafeAreaView style={style.container}>
       <ScrollView>
-        <Text>Hello World: Explore</Text>
+        <Text>Hello Admin: Orders</Text>
       </ScrollView>
     </SafeAreaView>
   );
@@ -14,6 +15,6 @@ export default function TabTwoScreen() {
 const style = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#8d8d8dff",
+    backgroundColor: Colors.main.background,
   },
 });

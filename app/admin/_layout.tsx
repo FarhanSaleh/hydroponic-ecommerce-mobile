@@ -9,13 +9,13 @@ export default function TabLayout() {
     <Tabs>
       <TabSlot />
       <TabList style={style.tabContainer}>
-        <TabTrigger name="home" href="/" asChild>
-          <TabButton icon="home">Home</TabButton>
+        <TabTrigger name="product" href="/admin" asChild>
+          <TabButton icon="leaf">Product</TabButton>
         </TabTrigger>
-        <TabTrigger name="shop" href="/shop" asChild>
-          <TabButton icon="leaf">Shop</TabButton>
+        <TabTrigger name="orders" href="/admin/orders" asChild>
+          <TabButton icon="dropbox">Orders</TabButton>
         </TabTrigger>
-        <TabTrigger name="profile" href="/profile" asChild>
+        <TabTrigger name="profile" href="/admin/profile" asChild>
           <TabButton icon="user">Profile</TabButton>
         </TabTrigger>
       </TabList>

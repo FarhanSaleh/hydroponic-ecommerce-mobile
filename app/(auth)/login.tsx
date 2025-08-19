@@ -1,3 +1,4 @@
+import { Link } from "expo-router";
 import { ScrollView, StyleSheet, Text } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -6,6 +7,12 @@ export default function LoginScreen() {
     <SafeAreaView style={style.container}>
       <ScrollView>
         <Text>Hello World: Login</Text>
+        <Link href={"/"}>
+          <Text>To User Home</Text>
+        </Link>
+        <Link href={"/admin"}>
+          <Text>To Admin Home</Text>
+        </Link>
       </ScrollView>
     </SafeAreaView>
   );
