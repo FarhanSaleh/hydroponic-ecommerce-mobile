@@ -7,7 +7,7 @@ import {
   TouchableHighlightProps,
 } from "react-native";
 
-type ButtonVariant = "primary" | "icon";
+type ButtonVariant = "primary" | "icon" | "rounded";
 
 interface ButtonProps extends TouchableHighlightProps {
   variant?: ButtonVariant;
@@ -28,7 +28,7 @@ interface ButtonProps extends TouchableHighlightProps {
  * Variant:
  * - primary: untuk penggunaan tombol text.
  * - icon: untuk penggunaan tombol icon
- *
+ * - rounded: button yang agak bulat bordernya
  */
 export default function Button({
   children,
@@ -36,15 +36,17 @@ export default function Button({
   variant = "primary",
   style,
   disabled = false,
+  underlayColor = Colors.main.primary200,
 }: ButtonProps) {
   return (
     <TouchableHighlight
-      underlayColor={Colors.main.primary200}
+      underlayColor={underlayColor}
       activeOpacity={0.6}
       style={[
         styles.base,
         variant === "primary" && styles.primary,
         variant === "icon" && styles.icon,
+        variant === "rounded" && styles.rounded,
         disabled && styles.disabled,
         style,
       ]}
@@ -58,7 +60,8 @@ export default function Button({
 
 const styles = StyleSheet.create({
   base: {
-    padding: 10,
+    paddingVertical: 10,
+    paddingHorizontal: 16,
     borderRadius: 8,
     alignItems: "center",
     justifyContent: "center",
@@ -70,10 +73,8 @@ const styles = StyleSheet.create({
   icon: {
     backgroundColor: "transparent",
   },
-  outline: {
-    backgroundColor: "transparent",
-    borderWidth: 2,
-    borderColor: Colors.main.primary,
+  rounded: {
+    borderRadius: 100,
   },
   disabled: {
     opacity: 0.5,

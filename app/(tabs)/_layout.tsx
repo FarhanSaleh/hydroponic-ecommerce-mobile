@@ -1,3 +1,4 @@
+import HeaderBar from "@/components/HeaderBar";
 import TabButton from "@/components/TabButton";
 import { Colors } from "@/constants/Colors";
 import { TabList, Tabs, TabSlot, TabTrigger } from "expo-router/ui";
@@ -7,6 +8,7 @@ import { StyleSheet } from "react-native";
 export default function TabLayout() {
   return (
     <Tabs>
+      <HeaderBar />
       <TabSlot />
       <TabList style={style.tabContainer}>
         <TabTrigger name="home" href="/" asChild>
