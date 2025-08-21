@@ -1,8 +1,9 @@
 import Button from "@/components/Button";
 import { Colors } from "@/constants/Colors";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
+import { Link } from "expo-router";
 import React, { useState } from "react";
-import { StyleSheet, Text, TextInput, View } from "react-native";
+import { Pressable, StyleSheet, Text, TextInput, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function HeaderBar() {
@@ -12,10 +13,12 @@ export default function HeaderBar() {
   return (
     <SafeAreaView edges={["top"]} style={style.container}>
       {!showInput && (
-        <View style={style.title}>
-          <FontAwesome name="leaf" style={style.icon} />
-          <Text style={style.text}>HydroFresh</Text>
-        </View>
+        <Link asChild href="/">
+          <Pressable style={style.title}>
+            <FontAwesome name="leaf" style={style.icon} />
+            <Text style={style.text}>HydroFresh</Text>
+          </Pressable>
+        </Link>
       )}
       <View style={[style.buttonContainer, showInput && { width: "100%" }]}>
         {!showInput && (
