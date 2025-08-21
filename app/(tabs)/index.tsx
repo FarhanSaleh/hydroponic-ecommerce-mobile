@@ -2,6 +2,7 @@ import Assets from "@/constants/Assets";
 import { Colors } from "@/constants/Colors";
 import { Data } from "@/constants/Data";
 import { Image } from "expo-image";
+import { Link } from "expo-router";
 import {
   FlatList,
   StyleSheet,
@@ -40,20 +41,22 @@ export default function HomeScreen() {
           </>
         )}
         renderItem={({ item }) => (
-          <TouchableHighlight
-            onPress={() => console.log(item.description)}
-            underlayColor={Colors.main.inputBackground}
+          <Link
+            asChild
+            href={{ pathname: "/items/[id]", params: { id: item.id } }}
           >
-            <View style={style.listContainer}>
-              <Image source={Assets.placeholder} style={style.imageData} />
-              <View style={{ gap: 4 }}>
-                <Text style={{ fontSize: 18, fontWeight: "bold" }}>
-                  {item.name}
-                </Text>
-                <Text>Rp{item.price.toLocaleString("id-ID")}</Text>
+            <TouchableHighlight underlayColor={Colors.main.inputBackground}>
+              <View style={style.listContainer}>
+                <Image source={Assets.placeholder} style={style.imageData} />
+                <View style={{ gap: 4 }}>
+                  <Text style={{ fontSize: 18, fontWeight: "bold" }}>
+                    {item.name}
+                  </Text>
+                  <Text>Rp{item.price.toLocaleString("id-ID")}</Text>
+                </View>
               </View>
-            </View>
-          </TouchableHighlight>
+            </TouchableHighlight>
+          </Link>
         )}
       />
     </SafeAreaView>
