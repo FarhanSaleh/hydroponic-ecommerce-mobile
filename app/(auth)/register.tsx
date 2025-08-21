@@ -30,7 +30,7 @@ export default function RegisterScreen() {
       <SafeAreaView style={style.container}>
         <View style={style.headerContainer}>
           <Text style={style.title}>Buat Akun</Text>
-          <Text style={style.text}>Login untuk masuk kedalam aplikasi</Text>
+          <Text style={style.text}>Silahkan daftar untuk membuat akun baru</Text>
         </View>
         <Formik
           initialValues={initialValues}
