@@ -20,6 +20,11 @@ export default function TabLayout() {
         <TabTrigger name="profile" href="/profile" asChild>
           <TabButton icon="user">Profile</TabButton>
         </TabTrigger>
+        <TabTrigger
+          name="dynamic page"
+          href="/items/[id]"
+          style={{ display: "none" }}
+        />
       </TabList>
     </Tabs>
   );
