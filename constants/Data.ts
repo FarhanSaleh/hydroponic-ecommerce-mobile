@@ -5,6 +5,178 @@ export interface DummyData {
   price: number;
   stock: number;
 }
+
+export interface DummyDataOrderDetail {
+  id: number;
+  amount: number;
+  price_at_order: number;
+  order_id: number;
+  item_id: number;
+  item: DummyData;
+}
+
+export interface DummyDataOrder {
+  id: number;
+  address: string;
+  total_price: number;
+  status: "process" | "success" | "cancel" | "ship";
+  payment_method: "transfer" | "cod";
+  payment_status: boolean;
+  transfer_proof_url?: string;
+  user_id: number;
+  created_at: string;
+  order_detail: DummyDataOrderDetail;
+}
+
+export const DataOrder: DummyDataOrder[] = [
+  {
+    id: 1,
+    address: "Jl. Merdeka No. 10, Jakarta Pusat",
+    total_price: 25500000,
+    status: "success",
+    payment_method: "transfer",
+    payment_status: true,
+    transfer_proof_url: "https://example.com/proofs/proof_1.jpg",
+    user_id: 101,
+    created_at: "2025-08-20T14:30:00Z",
+    order_detail: {
+      id: 1,
+      amount: 1,
+      price_at_order: 25500000,
+      order_id: 1,
+      item_id: 10,
+      item: {
+        id: 10,
+        name: "Laptop Pro Max 16 inch",
+        description: "Laptop bertenaga tinggi untuk para profesional.",
+        price: 25500000,
+        stock: 15,
+      },
+    },
+  },
+  {
+    id: 2,
+    address: "Jl. Sudirman Kav. 52-53, Bandung",
+    total_price: 750000,
+    status: "ship",
+    payment_method: "cod",
+    payment_status: false,
+    user_id: 102,
+    created_at: "2025-08-21T10:05:00Z",
+    order_detail: {
+      id: 2,
+      amount: 2,
+      price_at_order: 375000,
+      order_id: 2,
+      item_id: 15,
+      item: {
+        id: 15,
+        name: "Mechanical Keyboard K8",
+        description: "Keyboard mekanikal dengan RGB backlit.",
+        price: 375000,
+        stock: 50,
+      },
+    },
+  },
+  {
+    id: 3,
+    address: "Jl. Gajah Mada No. 1, Surabaya",
+    total_price: 1200000,
+    status: "process",
+    payment_method: "transfer",
+    payment_status: false,
+    user_id: 103,
+    created_at: "2025-08-22T09:00:00Z",
+    order_detail: {
+      id: 3,
+      amount: 1,
+      price_at_order: 1200000,
+      order_id: 3,
+      item_id: 21,
+      item: {
+        id: 21,
+        name: "Gaming Headset H5",
+        description: "Headset dengan surround sound 7.1.",
+        price: 1200000,
+        stock: 30,
+      },
+    },
+  },
+  {
+    id: 4,
+    address: "Jl. Pahlawan No. 25, Semarang",
+    total_price: 250000,
+    status: "cancel",
+    payment_method: "transfer",
+    payment_status: false,
+    user_id: 101,
+    created_at: "2025-08-19T11:45:00Z",
+    order_detail: {
+      id: 4,
+      amount: 1,
+      price_at_order: 250000,
+      order_id: 4,
+      item_id: 33,
+      item: {
+        id: 33,
+        name: "Wireless Mouse G-Series",
+        description: "Mouse nirkabel ergonomis.",
+        price: 250000,
+        stock: 120,
+      },
+    },
+  },
+  {
+    id: 5,
+    address: "Jl. Diponegoro No. 8, Yogyakarta",
+    total_price: 6000000,
+    status: "success",
+    payment_method: "cod",
+    payment_status: true,
+    user_id: 104,
+    created_at: "2025-08-18T16:20:00Z",
+    order_detail: {
+      id: 5,
+      amount: 1,
+      price_at_order: 6000000,
+      order_id: 5,
+      item_id: 45,
+      item: {
+        id: 45,
+        name: "4K Monitor 27 inch",
+        description: "Monitor resolusi tinggi untuk desain grafis.",
+        price: 6000000,
+        stock: 22,
+      },
+    },
+  },
+  {
+    id: 6,
+    address: "Jl. Asia Afrika No. 15, Bandung",
+    total_price: 400000,
+    status: "ship",
+    payment_method: "transfer",
+    payment_status: true,
+    transfer_proof_url: "https://example.com/proofs/proof_6.jpg",
+    user_id: 102,
+    created_at: "2025-08-22T11:10:00Z",
+    order_detail: {
+      id: 6,
+      amount: 2,
+      price_at_order: 200000,
+      order_id: 6,
+      item_id: 50,
+      item: {
+        id: 50,
+        name: "USB-C Hub 8-in-1",
+        description: "Multi-port adapter untuk konektivitas lengkap.",
+        price: 200000,
+        stock: 80,
+      },
+    },
+  },
+];
+
 export const Data: DummyData[] = [
   {
     id: 1,
