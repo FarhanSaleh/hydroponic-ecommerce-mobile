@@ -31,5 +31,9 @@ export const Colors = {
     background: "#fff",
     inputBackground: "#F0F4F2",
     secondary100: "#CAD8D0",
+    success: "#4CD96433",
+    warning: "#FF950033",
+    danger: "#FF3B3033",
+    info: "#5AC8FA33",
   },
 };
