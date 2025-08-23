@@ -36,7 +36,7 @@ export default function DetailItemScreen() {
           style={{ backgroundColor: Colors.main.primary }}
           onPress={() => console.log("WOW", quantity)}
         >
-          <Text style={{ fontWeight: "bold" }}>Buat Pesanan</Text>
+          <Text style={{ fontWeight: "bold" }}>Pesanan Sekarang</Text>
         </Button>
       </View>
     </ScrollView>
