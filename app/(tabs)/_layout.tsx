@@ -21,10 +21,11 @@ export default function TabLayout() {
           <TabButton icon="user">Profile</TabButton>
         </TabTrigger>
         <TabTrigger
-          name="dynamic page"
+          name="items-detail"
           href="/items/[id]"
           style={{ display: "none" }}
         />
+        <TabTrigger name="orders" href="/orders" style={{ display: "none" }} />
       </TabList>
     </Tabs>
   );
@@ -35,5 +36,7 @@ const style = StyleSheet.create({
     backgroundColor: Colors.main.inputBackground,
     paddingHorizontal: 16,
     paddingVertical: 12,
+    borderTopColor: Colors.main.background,
+    borderTopWidth: 1,
   },
 });
