@@ -22,16 +22,18 @@ export default function HeaderBar() {
       )}
       <View style={[style.buttonContainer, showInput && { width: "100%" }]}>
         {!showInput && (
-          <Button
-            variant="rounded"
-            style={style.button}
-            underlayColor={Colors.main.secondary100}
-          >
-            <View style={style.buttonContent}>
-              <FontAwesome name="dropbox" style={style.icon} />
-              <Text style={{ color: Colors.main.accent }}>Orders</Text>
-            </View>
-          </Button>
+          <Link asChild href="/orders">
+            <Button
+              variant="rounded"
+              style={style.button}
+              underlayColor={Colors.main.secondary100}
+            >
+              <View style={style.buttonContent}>
+                <FontAwesome name="dropbox" style={style.icon} />
+                <Text style={{ color: Colors.main.accent }}>Orders</Text>
+              </View>
+            </Button>
+          </Link>
         )}
         <Button
           variant="rounded"
@@ -64,6 +66,8 @@ const style = StyleSheet.create({
     paddingVertical: 12,
     flexDirection: "row",
     justifyContent: "space-between",
+    borderBottomColor: Colors.main.inputBackground,
+    borderBottomWidth: 1,
   },
   title: {
     flexDirection: "row",
