@@ -13,7 +13,7 @@ export default function ShopScreen() {
       numColumns={2}
       keyExtractor={(item) => `${item.id}`}
       renderItem={({ item }) => (
-        <Link asChild href={{ pathname: "/items/[id]", params: { id: item.id } }} style={{ width: "49%" }}>
+        <Link asChild href={{ pathname: "/user/items/[id]", params: { id: item.id } }} style={{ width: "49%" }}>
           <TouchableHighlight underlayColor={Colors.main.inputBackground} style={{ margin: 2, borderRadius: 8 }}>
             <View style={style.listContainer}>
               <Image source={Assets.placeholder} style={style.imageData} />

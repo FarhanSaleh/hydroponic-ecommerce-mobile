@@ -24,7 +24,7 @@ export default function HomeScreen() {
         </>
       )}
       renderItem={({ item }) => (
-        <Link asChild href={{ pathname: "/items/[id]", params: { id: item.id } }}>
+        <Link asChild href={{ pathname: "/user/items/[id]", params: { id: item.id } }}>
           <TouchableHighlight underlayColor={Colors.main.inputBackground}>
             <View style={style.listContainer}>
               <Image source={Assets.placeholder} style={style.imageData} />
