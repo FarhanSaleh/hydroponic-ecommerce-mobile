@@ -11,7 +11,6 @@ import {
   TouchableHighlight,
   View,
 } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
 
 interface OrderCardProps {
   item: DummyDataOrder;
@@ -20,19 +19,18 @@ interface OrderCardProps {
 
 export default function OrdersScreen() {
   return (
-    <SafeAreaView style={style.container}>
+    <View style={style.container}>
       <FlatList
         data={DataOrder}
         showsVerticalScrollIndicator={false}
         keyExtractor={(item) => `${item.id}`}
-        ListHeaderComponent={() => (
-          <Text style={style.title}>Daftar Pesanan</Text>
-        )}
+        ListHeaderComponent={() => <View style={{ paddingTop: 16 }} />}
         renderItem={({ item }) => (
           <OrderCard item={item} onPress={() => console.log(item.status)} />
         )}
+        ListFooterComponent={() => <View style={{ paddingBottom: 16 }} />}
       />
-    </SafeAreaView>
+    </View>
   );
 }
 

@@ -16,8 +16,9 @@ export default function RootLayout() {
     <>
       <StatusBar />
       <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="admin" options={{ headerShown: false }} />
+        <Stack.Screen name="user/(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name="user/(stack)" options={{ headerShown: false }} />
+        <Stack.Screen name="admin/(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="(auth)/register" options={{ headerShown: false }} />
         <Stack.Screen name="(auth)/login" options={{ headerShown: false }} />
         <Stack.Screen name="+not-found" />

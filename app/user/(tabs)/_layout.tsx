@@ -11,21 +11,15 @@ export default function TabLayout() {
       <HeaderBar />
       <TabSlot />
       <TabList style={style.tabContainer}>
-        <TabTrigger name="home" href="/" asChild>
+        <TabTrigger name="home" href="/user" asChild>
           <TabButton icon="home">Home</TabButton>
         </TabTrigger>
-        <TabTrigger name="shop" href="/shop" asChild>
+        <TabTrigger name="shop" href="/user/shop" asChild>
           <TabButton icon="leaf">Shop</TabButton>
         </TabTrigger>
-        <TabTrigger name="profile" href="/profile" asChild>
+        <TabTrigger name="profile" href="/user/profile" asChild>
           <TabButton icon="user">Profile</TabButton>
         </TabTrigger>
-        <TabTrigger
-          name="items-detail"
-          href="/items/[id]"
-          style={{ display: "none" }}
-        />
-        <TabTrigger name="orders" href="/orders" style={{ display: "none" }} />
       </TabList>
     </Tabs>
   );

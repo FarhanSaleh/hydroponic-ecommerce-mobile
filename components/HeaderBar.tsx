@@ -13,7 +13,7 @@ export default function HeaderBar() {
   return (
     <SafeAreaView edges={["top"]} style={style.container}>
       {!showInput && (
-        <Link asChild href="/">
+        <Link asChild href="/user">
           <Pressable style={style.title}>
             <FontAwesome name="leaf" style={style.icon} />
             <Text style={style.text}>HydroFresh</Text>
@@ -22,7 +22,7 @@ export default function HeaderBar() {
       )}
       <View style={[style.buttonContainer, showInput && { width: "100%" }]}>
         {!showInput && (
-          <Link asChild href="/orders">
+          <Link asChild href="/user/orders">
             <Button
               variant="rounded"
               style={style.button}
