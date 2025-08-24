@@ -1,3 +1,4 @@
+import HeaderBar from "@/components/HeaderBar";
 import Assets from "@/constants/Assets";
 import { Colors } from "@/constants/Colors";
 import { Data } from "@/constants/Data";
@@ -7,25 +8,28 @@ import { FlatList, StyleSheet, Text, TouchableHighlight, View } from "react-nati
 
 export default function ShopScreen() {
   return (
-    <FlatList
-      style={style.container}
-      data={Data}
-      numColumns={2}
-      keyExtractor={(item) => `${item.id}`}
-      renderItem={({ item }) => (
-        <Link asChild href={{ pathname: "/user/items/[id]", params: { id: item.id } }} style={{ width: "49%" }}>
-          <TouchableHighlight underlayColor={Colors.main.inputBackground} style={{ margin: 2, borderRadius: 8 }}>
-            <View style={style.listContainer}>
-              <Image source={Assets.placeholder} style={style.imageData} />
-              <View style={{ gap: 4, width: "100%", alignItems: "flex-start" }}>
-                <Text style={{ fontSize: 18, fontWeight: "bold" }}>{item.name}</Text>
-                <Text>Rp{item.price.toLocaleString("id-ID")}</Text>
+    <>
+      <HeaderBar />
+      <FlatList
+        style={style.container}
+        data={Data}
+        numColumns={2}
+        keyExtractor={(item) => `${item.id}`}
+        renderItem={({ item }) => (
+          <Link asChild href={{ pathname: "/user/items/[id]", params: { id: item.id } }} style={{ width: "49%" }}>
+            <TouchableHighlight underlayColor={Colors.main.inputBackground} style={{ margin: 2, borderRadius: 8 }}>
+              <View style={style.listContainer}>
+                <Image source={Assets.placeholder} style={style.imageData} />
+                <View style={{ gap: 4, width: "100%", alignItems: "flex-start" }}>
+                  <Text style={{ fontSize: 18, fontWeight: "bold" }}>{item.name}</Text>
+                  <Text>Rp{item.price.toLocaleString("id-ID")}</Text>
+                </View>
               </View>
-            </View>
-          </TouchableHighlight>
-        </Link>
-      )}
-    />
+            </TouchableHighlight>
+          </Link>
+        )}
+      />
+    </>
   );
 }
 
