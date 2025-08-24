@@ -3,63 +3,40 @@ import { Colors } from "@/constants/Colors";
 import { Data } from "@/constants/Data";
 import { Image } from "expo-image";
 import { Link } from "expo-router";
-import {
-  FlatList,
-  StyleSheet,
-  Text,
-  TouchableHighlight,
-  View,
-} from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { FlatList, StyleSheet, Text, TouchableHighlight, View } from "react-native";
 
 export default function HomeScreen() {
   return (
-    <SafeAreaView style={style.container}>
-      <FlatList
-        data={Data}
-        keyExtractor={(item) => `${item.id}`}
-        ListHeaderComponent={() => (
-          <>
-            <View style={style.imageContainer}>
-              <Image source={Assets.home} style={style.image} />
-              <View style={style.imageTitleContainer}>
-                <Text
-                  style={[
-                    style.imageTitle,
-                    { fontSize: 32, fontWeight: "bold" },
-                  ]}
-                >
-                  Selamat Datang
-                </Text>
-                <Text style={[style.imageTitle]}>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Tempore, perspiciatis.
-                </Text>
+    <FlatList
+      style={style.container}
+      data={Data}
+      keyExtractor={(item) => `${item.id}`}
+      ListHeaderComponent={() => (
+        <>
+          <View style={style.imageContainer}>
+            <Image source={Assets.home} style={style.image} />
+            <View style={style.imageTitleContainer}>
+              <Text style={[style.imageTitle, { fontSize: 32, fontWeight: "bold" }]}>Selamat Datang</Text>
+              <Text style={[style.imageTitle]}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, perspiciatis.</Text>
+            </View>
+          </View>
+          <Text style={style.listHeading}>Sayuran Terbaru</Text>
+        </>
+      )}
+      renderItem={({ item }) => (
+        <Link asChild href={{ pathname: "/items/[id]", params: { id: item.id } }}>
+          <TouchableHighlight underlayColor={Colors.main.inputBackground}>
+            <View style={style.listContainer}>
+              <Image source={Assets.placeholder} style={style.imageData} />
+              <View style={{ gap: 4 }}>
+                <Text style={{ fontSize: 18, fontWeight: "bold" }}>{item.name}</Text>
+                <Text>Rp{item.price.toLocaleString("id-ID")}</Text>
               </View>
             </View>
-            <Text style={style.listHeading}>Sayuran Terbaru</Text>
-          </>
-        )}
-        renderItem={({ item }) => (
-          <Link
-            asChild
-            href={{ pathname: "/items/[id]", params: { id: item.id } }}
-          >
-            <TouchableHighlight underlayColor={Colors.main.inputBackground}>
-              <View style={style.listContainer}>
-                <Image source={Assets.placeholder} style={style.imageData} />
-                <View style={{ gap: 4 }}>
-                  <Text style={{ fontSize: 18, fontWeight: "bold" }}>
-                    {item.name}
-                  </Text>
-                  <Text>Rp{item.price.toLocaleString("id-ID")}</Text>
-                </View>
-              </View>
-            </TouchableHighlight>
-          </Link>
-        )}
-      />
-    </SafeAreaView>
+          </TouchableHighlight>
+        </Link>
+      )}
+    />
   );
 }
 
