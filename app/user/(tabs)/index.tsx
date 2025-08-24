@@ -1,3 +1,4 @@
+import HeaderBar from "@/components/HeaderBar";
 import Assets from "@/constants/Assets";
 import { Colors } from "@/constants/Colors";
 import { Data } from "@/constants/Data";
@@ -7,6 +8,8 @@ import { FlatList, StyleSheet, Text, TouchableHighlight, View } from "react-nati
 
 export default function HomeScreen() {
   return (
+    <>
+    <HeaderBar />
     <FlatList
       style={style.container}
       data={Data}
@@ -37,6 +40,7 @@ export default function HomeScreen() {
         </Link>
       )}
     />
+    </>
   );
 }
 
