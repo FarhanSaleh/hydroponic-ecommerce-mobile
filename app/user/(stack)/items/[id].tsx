@@ -3,7 +3,7 @@ import { QuantityStepper } from "@/components/QuantityStepper";
 import Assets from "@/constants/Assets";
 import { Colors } from "@/constants/Colors";
 import { Image } from "expo-image";
-import { useLocalSearchParams } from "expo-router";
+import { Link, useLocalSearchParams } from "expo-router";
 import React, { useState } from "react";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
 
@@ -31,13 +31,14 @@ export default function DetailItemScreen() {
           onValueChange={setQuantity}
           style={{ alignSelf: "center" }}
         />
-        <Button
-          variant="rounded"
-          style={{ backgroundColor: Colors.main.primary }}
-          onPress={() => console.log("WOW", quantity)}
-        >
-          <Text style={{ fontWeight: "bold" }}>Pesanan Sekarang</Text>
-        </Button>
+        <Link href={"/user/(stack)/checkout"} asChild>
+          <Button
+            variant="rounded"
+            style={{ backgroundColor: Colors.main.primary }}
+          >
+            <Text style={{ fontWeight: "bold" }}>Pesanan Sekarang</Text>
+          </Button>
+        </Link>
       </View>
     </ScrollView>
   );
