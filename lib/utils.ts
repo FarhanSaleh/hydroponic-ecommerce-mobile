@@ -1,3 +1,4 @@
+import { ImagePickerAsset } from "expo-image-picker";
 import { z } from "zod";
 
 export const validateWithZod = (schema: z.ZodSchema<any>) => (values: any) => {
@@ -12,4 +13,18 @@ export const validateWithZod = (schema: z.ZodSchema<any>) => (values: any) => {
   });
 
   return errors;
+};
+
+export const toUploadImage = (
+  asset: ImagePickerAsset
+): {
+  uri: string;
+  name: string | null | undefined;
+  type: string | undefined;
+} => {
+  return {
+    uri: asset.uri,
+    name: "image",
+    type: asset.mimeType,
+  };
 };
