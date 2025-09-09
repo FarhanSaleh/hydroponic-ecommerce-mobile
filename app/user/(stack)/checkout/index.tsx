@@ -2,7 +2,10 @@ import Button from "@/components/Button";
 import Radio, { RadioOption } from "@/components/Radio";
 import Assets from "@/constants/Assets";
 import { Colors } from "@/constants/Colors";
+import { validateWithZod } from "@/lib/utils";
+import { schemaFormCheckout, SchemaFormCheckout } from "@/schemas/checkout";
 import { Image } from "expo-image";
+import { useRouter } from "expo-router";
 import { Formik } from "formik";
 import React from "react";
 import {
@@ -14,12 +17,13 @@ import {
 } from "react-native";
 
 export default function CheckoutScreen() {
+  const navigate = useRouter();
   const radioOption: RadioOption[] = [
     { label: "Bayar Ditempat", value: "cod" },
     { label: "Transfer Bank", value: "transfer" },
   ];
 
-  const initialValues = {
+  const initialValues: SchemaFormCheckout = {
     address: "",
     payment_method: "",
   };
@@ -28,9 +32,17 @@ export default function CheckoutScreen() {
     <View style={{ flex: 1, position: "relative" }}>
       <Formik
         initialValues={initialValues}
-        onSubmit={(values) => console.log(values)}
+        onSubmit={(values) => navigate.push("/user/(stack)/payment")}
+        validate={validateWithZod(schemaFormCheckout)}
       >
-        {({ handleSubmit, handleChange, values, handleBlur }) => (
+        {({
+          handleSubmit,
+          handleChange,
+          values,
+          handleBlur,
+          touched,
+          errors,
+        }) => (
           <>
             <View style={style.container}>
               <View style={{ gap: 8 }}>
@@ -42,6 +54,9 @@ export default function CheckoutScreen() {
                   onChangeText={handleChange("address")}
                   onBlur={handleBlur("address")}
                 />
+                {touched.address && errors.address && (
+                  <Text style={style.error}>{errors.address}</Text>
+                )}
               </View>
               <View>
                 <TouchableHighlight
@@ -83,6 +98,9 @@ export default function CheckoutScreen() {
                       }
                     />
                   ))}
+                  {touched.payment_method && errors.payment_method && (
+                    <Text style={style.error}>{errors.payment_method}</Text>
+                  )}
                 </View>
               </View>
             </View>
@@ -160,5 +178,8 @@ const style = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 4,
     padding: 10,
+  },
+  error: {
+    color: "red",
   },
 });

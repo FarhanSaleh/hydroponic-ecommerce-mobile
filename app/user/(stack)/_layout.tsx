@@ -7,6 +7,7 @@ export default function _layout() {
       <Stack.Screen name="items/[id]" options={{ title: "" }} />
       <Stack.Screen name="orders/index" options={{ title: "Daftar Pesanan" }} />
       <Stack.Screen name="checkout/index" options={{ title: "Checkout" }} />
+      <Stack.Screen name="payment/index" options={{ title: "Pembayaran" }} />
     </Stack>
   );
 }
